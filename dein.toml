@@ -1,0 +1,72 @@
+#プラグインマネージャ
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+#エクスプローラみたいなのを表示
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+    "NERTTreeをctrl + eで開く
+    nnoremap <silent><C-e> :NERDTreeToggle<CR>
+'''
+
+#カラースキーム
+[[plugins]]
+repo = 'sjl/badwolf'
+
+#Gtags(関数や変数のジャンプ昨日。参照先を出したくて導入)
+[[plugins]]
+repo = 'lighttiger2505/gtags.vim'
+hook_add = '''
+    " Options
+    let g:Gtags_Auto_Map = 0
+    let g:Gtags_OpenQuickfixWindow = 1
+    " Keymap
+    " スペース + f = 関数一覧表示
+    " スペース + j = カーソル位置の関数を検索する
+    " スペース + d = 参照元へジャンプ
+    " スペース + r = 参照先へジャンプ
+    nnoremap <silent> <Space>f :Gtags -f %<CR>
+    nnoremap <silent> <Space>j :GtagsCursor<CR>
+    nnoremap <silent> <Space>d :<C-u>exe('Gtags '.expand('<cword>'))<CR>
+    nnoremap <silent> <Space>r :<C-u>exe('Gtags -r '.expand('<cword>'))<CR>
+'''
+
+#IDEぽく関数一覧なんかを表示する
+[[plugins]]
+repo = 'majutsushi/tagbar'
+hook_add = '''
+    let g:tagbar_width = 20
+    " 「Ctrl + t」でtagbar展開
+    nn <silent> <C-t> :TagbarToggle<CR>
+
+'''
+#ステータスバーの見た目をかっこよく、かつ実用的に。
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+depends = ['vim-airline-themes']
+hook_add = '''
+    "テーマ
+    let g:airline_theme = 'kalisi'
+    "バッファをタブ表示
+    let g:airline#extensions#tabline#enabled = 1
+    "左右のカーソルキーでバッファ移動
+    nnoremap <Left> :bp<CR>
+    nnoremap <Right> :bn<CR>
+'''
+
+#vim-airlineのテーマ
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+#ステータスバーにブランチ名表示
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+#gtagsを非同期で生成してくれる・・・はずだけどこれがあるとgtagsうまく動作しないのでコメントアウト
+#[[plugins]]
+#repo = 'jsfaint/gen_tags.vim'
+#hook_add = '''
+#    let g:gen_tags#gtags_auto_gen = 1
+#'''
+
