@@ -1,6 +1,10 @@
 "文字コード
 set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis
+"全角文字の記号崩れ防止
+set ambiwidth=double
+"マウス有効（トラックパッドでスクロースも動確済み）
+set mouse=a
 "色
 set t_Co=256
 "行番号表示
@@ -37,12 +41,16 @@ set hidden
 "入力中のコマンドをステータスに表示する
 set showcmd
 "ノーマルモードでスペースキー2回押しでカーソル下の単語をハイライト
-"nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 "削除時にヤンクしない
 nnoremap x "_x
 nnoremap d "_d
 nnoremap D "_D
 nnoremap dd "_dd
+"選択中のバッファを削除
+nnoremap <C-P> :bd<CR>
+"置換
+nnoremap <C-Q> :%s///g
 
 "-------------------------------------
 " dein

@@ -1,3 +1,4 @@
+#Goのフォーマット
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = ['go']
@@ -6,10 +7,12 @@ hook_add = '''
     nnoremap <silent><C-g> :GoFmt<CR>
 '''
 
+#Python補完
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = ['python']
 
+#Pythonの構文規約
 [[plugins]]
 repo = 'nvie/vim-flake8'
 on_ft = ['python']

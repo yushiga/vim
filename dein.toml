@@ -39,8 +39,8 @@ hook_add = '''
     let g:tagbar_width = 20
     " 「Ctrl + t」でtagbar展開
     nn <silent> <C-t> :TagbarToggle<CR>
-
 '''
+
 #ステータスバーの見た目をかっこよく、かつ実用的に。
 [[plugins]]
 repo = 'vim-airline/vim-airline'
@@ -70,3 +70,34 @@ repo = 'tpope/vim-fugitive'
 #    let g:gen_tags#gtags_auto_gen = 1
 #'''
 
+#JSONを見やすく
+[[plugins]]
+repo = 'elzr/vim-json'
+
+#構文チェッカー
+[[plugins]]
+repo = 'vim-syntastic/syntastic'
+hook_add = '''
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+    "他のVimプラグインと競合するのを防ぐ
+    let g:syntastic_always_populate_loc_list = 1
+    "構文エラーリストを表示
+    let g:syntastic_auto_loc_list = 1
+    "ファイルを開いた時に構文エラーチェックを実行しない
+    let g:syntastic_check_on_open = 0
+    "wqで閉じるときに構文エラーチェックを実行しなし
+    let g:syntastic_check_on_wq = 0
+    "Pythone用。構文エラーチェックにflake8を使用
+    let g:syntastic_python_checkers = ["flake8"]
+    let g:syntastic_error_symbol = '❗'
+    let g:syntastic_style_error_symbol = '❗'
+    let g:syntastic_warning_symbol = '⚠'
+    let g:syntastic_style_warning_symbol = '⚠'
+    
+    highlight link SyntasticErrorSign SignColumn
+    highlight link SyntasticWarningSign SignColumn
+    highlight link SyntasticStyleErrorSign SignColumn
+    highlight link SyntasticStyleWarningSign SignColumn
+'''
