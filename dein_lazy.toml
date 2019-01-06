@@ -1,18 +1,39 @@
-#Goのフォーマット
+#==================================
+# golang関連
+#==================================
+#Goのフォーマット、補完など
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = ['go']
 hook_add = '''
     "ctrl + gで GoFmt
     nnoremap <silent><C-g> :GoFmt<CR>
+    "スペース＋rで参照先一覧表示
+    nnoremap <silent> <Space>r :GoCallers<CR>
 '''
 
-#Python補完
+# Goコード補完
+[[plugins]]
+repo = 'zchee/deoplete-go'
+on_ft = 'go'
+
+#==================================
+# Python関連
+#==================================
+# Python補完
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = ['python']
 
-#Pythonの構文規約
+# Pythonの構文規約
 [[plugins]]
 repo = 'nvie/vim-flake8'
 on_ft = ['python']
+
+#==================================
+# HTML関連
+#==================================
+# HTML補完
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['css','html']

@@ -16,7 +16,7 @@ set whichwrap=b,s,h,l,<,>,[,],~
 "現在の行を強調表示
 set cursorline
 "現在の行を強調表示（縦）
-set cursorcolumn
+"set cursorcolumn
 "ステータスラインを常に表示
 set laststatus=2
 "タブは半角スペース4文字
@@ -47,9 +47,9 @@ nnoremap x "_x
 nnoremap d "_d
 nnoremap D "_D
 nnoremap dd "_dd
-"選択中のバッファを削除
+"ctrl + pで選択中のバッファを削除
 nnoremap <C-P> :bd<CR>
-"置換
+"ctrl + qで置換
 nnoremap <C-Q> :%s///g
 
 "-------------------------------------
@@ -91,8 +91,11 @@ syntax on
 "ctags
 "-------------------------------------
 nnoremap <C-]> g<C-]>
+"nnoremap <silent> <Space>] g<C-]>
 
 "-------------------------------------
 "powerline font
 "-------------------------------------
 let g:airline_powerline_fonts = 1
+
+let g:go_gocode_propose_source = 0
